@@ -2,7 +2,8 @@
 
 /**
  * print_percent - prints a percent symbol
- * Return: 1
+ *
+ * Return: number of characters printed
  */
 int print_percent(void)
 {
