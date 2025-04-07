@@ -29,8 +29,8 @@ int _printf(const char *format, ...)
 				printed += print_percent();
 			else
 			{
-				printed += _putchar('%');
-				printed += _putchar(format[i]);
+				va_end(args);
+				return(-1);
 			}
 		}
 		else
