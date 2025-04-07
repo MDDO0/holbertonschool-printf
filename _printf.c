@@ -1,26 +1,31 @@
 #include "main.h"
 
 /**
- * _printf - custom printf function
- * @format: format string
+ * _printf - Produces output according to a format
+ * @format: Format string
  *
- * Return: number of characters printed
+ * Return: Number of characters printed
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, count = 0;
 	va_list args;
+	int i = 0, count = 0;
 
 	if (format == NULL)
 		return (-1);
 
 	va_start(args, format);
-
 	while (format[i])
 	{
-		if (format[i] == '%' && format[i + 1])
+		if (format[i] != '%')
+		{
+			count += _putchar(format[i]);
+		}
+		else
 		{
 			i++;
+			if (!format[i])
+				return (-1);
 			if (format[i] == 'c')
 				count += print_char(args);
 			else if (format[i] == 's')
@@ -29,19 +34,12 @@ int _printf(const char *format, ...)
 				count += print_percent();
 			else
 			{
-				_putchar('%');
-				_putchar(format[i]);
-				count += 2;
+				count += _putchar('%');
+				count += _putchar(format[i]);
 			}
-		}
-		else
-		{
-			_putchar(format[i]);
-			count++;
 		}
 		i++;
 	}
-
 	va_end(args);
 	return (count);
 }
