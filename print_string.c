@@ -2,14 +2,14 @@
 
 /**
  * print_string - prints a string
- * @args: va_list with the string
+ * @args: argument list
  *
  * Return: number of characters printed
  */
 int print_string(va_list args)
 {
-	char *str = va_arg(args, char *);
 	int i = 0;
+	char *str = va_arg(args, char *);
 
 	if (str == NULL)
 		str = "(null)";
@@ -19,5 +19,6 @@ int print_string(va_list args)
 		_putchar(str[i]);
 		i++;
 	}
+
 	return (i);
 }
