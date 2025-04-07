@@ -1,15 +1,4 @@
 #include "main.h"
-
-/**
- * _putchar - writes a character to stdout
- * @c: character to print
- * Return: 1 if successful, -1 on error
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-
 /**
  * print_char - prints a single character
  * @args: va_list containing the character
